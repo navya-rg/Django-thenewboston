@@ -11,11 +11,11 @@ def index(request):
     context = {'all_albums' : all_albums}
     return render(request, 'music/index.html', context)
 
-     # all_albums = Album.objects.all()
-     # #By default Django looks in the templates directory
-     # template = loader.get_template('music/index.html')
-     # context = {'all_albums' : all_albums}
-     # return HttpResponse(template.render(context, request))
+    # all_albums = Album.objects.all()
+    # #By default Django looks in the templates directory
+    # template = loader.get_template('music/index.html')
+    # context = {'all_albums' : all_albums}
+    # return HttpResponse(template.render(context, request))
 
     # all_albums = Album.objects.all()
     # html = ''
