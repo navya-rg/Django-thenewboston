@@ -9,3 +9,21 @@ body {
 .navbar-brand {
   font-family: Satisfy, cursive;
 }
+
+.card {
+  background-color: #fff;
+  border: 1px solid gray;
+  min-height: 460px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+.songs {
+  background-color: #fff;
+  border: 1px solid gray;
+  padding: 20px;
+}

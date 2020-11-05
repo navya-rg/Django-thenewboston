@@ -1,11 +1,23 @@
 {% extends 'music/base.html' %}
 
 {% block body %}
+<div class="container">
+  <div class="row">
   {% if all_albums %}
-  <ul>
     {% for album in all_albums %}
-    <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
+    <!-- <a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a> -->
+    <div class="card col-xs-5 col-sm-3">
+      <img class="card-img-top img-fluid" src="{{ album.album_logo }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ album.album_title }}</h5>
+        <p class="card-text">{{ album.artist }}</p>
+        <a href="{% url 'music:detail' album.id %}" class="btn btn-primary">View detail</a>
+        <a href="#" class="btn btn-light"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+        <a href="#" class="btn btn-light"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
   {% endif %}
+  </div>
+  </div>
 {% endblock %}
