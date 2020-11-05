@@ -25,7 +25,7 @@
       <!-- Items -->
       <div class="collapse navbar-collapse" id="topNavBar">
         <ul class="nav navbar-nav">
-          <li class="active">
+          <li class="{% block albums_active %}{% endblock %}">
             <a href="{% url 'music:index' %}">
               <span class="glyphicon glyphicon-cd" aria-hidden="true"></span> &nbsp Albums
             </a>
@@ -46,7 +46,7 @@
         </form>
 
         <ul class="nav navbar-nav navbar-right">
-          <li class="">
+          <li class="{% block albums_form_active %}{% endblock %}">
             <a href="{% url 'music:album-add' %}">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp Add Album
             </a>
