@@ -1,25 +1,31 @@
 {% extends 'music/base.html' %}
 
 {% block body %}
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
   {% if all_albums %}
+  <div class="row">
     {% for album in all_albums %}
     <!-- <a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a> -->
-    <div class="card col-xs-5 col-sm-3">
-      <img class="card-img-top img-fluid" src="{{ album.album_logo }}" />
-      <div class="card-body">
-        <h5 class="card-title">{{ album.album_title }}</h5>
-        <p class="card-text">{{ album.artist }}</p>
-        <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm">View detail</a>
+    <div class="col-sm-4 col-lg-2">
+      <div class="thumbnail">
+        <!-- Album logo -->
+        <a href="{% url 'music:detail' album.id %}">
+          <img src="{{ album.album_logo.url }}" class="img-responsive"/>
+        </a>
 
-        <!-- Delete -->
-        <form action="{% url 'music:album-delete' album.id %}" method="post" style="display: inline;">
-          {% csrf_token %}
-          <input type="hidden" name="album_id" value="{{ album_id }}" />
-          <button type="submit" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-trash"></span>
-          </button>
+        <div class="caption">
+          <h2>{{ album.album_title }}</h2>
+          <h4>{{ album.artist }}</h4>
+
+          <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm">View detail</a>
+
+          <!-- Delete -->
+          <form action="{% url 'music:album-delete' album.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input type="hidden" name="album_id" value="{{ album_id }}" />
+            <button type="submit" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
           </form>
 
           <!-- Favourite -->
@@ -28,8 +34,10 @@
           </a>
         </div>
       </div>
+    </div>
     {% endfor %}
+  </div>
   {% endif %}
-  </div>
-  </div>
+
+</div>
 {% endblock %}
